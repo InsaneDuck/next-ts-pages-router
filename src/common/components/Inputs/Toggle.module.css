@@ -1,0 +1,64 @@
+.toggleLabel {
+    margin-top: 8px;
+}
+
+/* Hide default HTML checkbox */
+.hideInput {
+    height: 0;
+    opacity: 0;
+    width: 0;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    height: 34px;
+    width: 60px;
+}
+
+/* The slider */
+.slider {
+    background-color: black;
+    cursor: pointer;
+    position: absolute;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+/* Button inside slider */
+.slider:before {
+    content: "";
+    background-color: white;
+    left: 4px;
+    bottom: 4px;
+    position: absolute;
+
+    height: 26px;
+    width: 26px;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    -ms-transform: translateX(26px);
+    -webkit-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px transparent;
+}
+
+
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
