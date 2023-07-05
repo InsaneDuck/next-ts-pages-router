@@ -16,10 +16,10 @@ export type FetchResponse = {
         errorCode: number | null,
         errorMessage: string | null
     },
-    fetchFunction: (api: ApiEndpointProps) => Promise<void>
+    ApiFetch: (api: ApiEndpoint) => Promise<void>
 }
 
-export type ApiEndpointProps = {
+export type ApiEndpoint = {
     url: string,
     username: string,
     password: string
@@ -35,7 +35,7 @@ const useFetch = (): FetchResponse => {
         }
     });
 
-    const fetchFunction = useCallback(async (api: ApiEndpointProps) => {
+    const fetchAPI = useCallback(async (api: ApiEndpoint) => {
 
         setFetchProps({
             responseData: {},
@@ -69,7 +69,7 @@ const useFetch = (): FetchResponse => {
 
     }, []);
 
-    return {...fetchProps, fetchFunction};
+    return {...fetchProps, ApiFetch: fetchAPI};
 };
 
 export default useFetch;
